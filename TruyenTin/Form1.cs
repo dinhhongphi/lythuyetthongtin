@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TruyenTin.src;
 
 namespace TruyenTin
 {
@@ -15,6 +16,8 @@ namespace TruyenTin
         public Form1()
         {
             InitializeComponent();
+            Client client = new Client();
+            client.Handler();
         }
     }
 }

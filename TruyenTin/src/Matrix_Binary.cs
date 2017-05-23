@@ -8,10 +8,15 @@ namespace TruyenTin.src
 {
     public class Matrix_Binary
     {
+#if TEST
+        public int m;
+        public int n;
+        public int[,] matrix;
+#else
         private int m;
         private int n;
         private int[,] matrix;
-
+#endif
         public Matrix_Binary(int m, int n)
         {
             this.m = m;
@@ -55,7 +60,27 @@ namespace TruyenTin.src
         /// <returns></returns>
         public Matrix_Binary Multiply(Matrix_Binary second)
         {
-            return null;
+            if(this.n == second.GetM()) //thỏa điều kiện nhân hai ma trận
+            {
+                Matrix_Binary c = new Matrix_Binary(this.m, second.GetN());
+
+                for(int i = 0; i < c.GetM(); i++)
+                {
+                    for(int j = 0; j < c.GetN(); j++)
+                    {
+                        int result = 0;
+                        for(int k = 0; k < this.n; k++)
+                        {
+                            result ^= this.matrix[i, k] * second.GetValue(k, j);
+                        }
+                        c.SetValue(i,j,result);
+                    }
+                }
+                return c;
+            }else
+            {
+                return null;
+            }
         }
 
         /// <summary>

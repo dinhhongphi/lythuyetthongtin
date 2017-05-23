@@ -20,7 +20,7 @@ namespace TruyenTin.src
             {
 #if TEST_DUONG_DI
                 x++;
-                if (x == 100)
+                if (x == 1000)
                     return;
                 Debug.WriteLine("Client receive from server");
 #endif
@@ -82,7 +82,10 @@ namespace TruyenTin.src
                     W = matrix
                 }
             };
-
+            var a = new Matrix_Binary(1,2);
+            a.SetValue(0, 0, 1);
+            a.SetValue(0, 1, 0);
+            Log.Write_w(a);
             SendAsync(package, new Duong_Truyen(), new Server());
 #else
             //encrypt u => w
@@ -98,7 +101,6 @@ namespace TruyenTin.src
                     W = w
                 }
             };
-
             SendAsync(package, new Duong_Truyen(), new Server());
 #endif
         }

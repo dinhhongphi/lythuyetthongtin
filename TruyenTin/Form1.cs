@@ -16,6 +16,7 @@ namespace TruyenTin
         public Form1()
         {
             InitializeComponent();
+            Log.control = this.txtResult;
             Client client = new Client();
             client.Handler();
         }

@@ -27,7 +27,14 @@ namespace TruyenTin.src
         /// <param name="value"></param>
         public void SetValue(int i, int j, int value)
         {
-            matrix[i, j] = value;
+            if(value == 0 || value == 1)
+            {
+                matrix[i, j] = value;
+            }
+            else
+            {
+                throw new ArgumentException("value must in [0,1]");
+            }
         }
 
         /// <summary>

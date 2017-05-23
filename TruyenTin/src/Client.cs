@@ -46,7 +46,21 @@ namespace TruyenTin.src
         /// <returns></returns>
         private Matrix_Binary Encrypt()
         {
-            return null;
+            if(u == null || G == null)
+            {
+                return null;
+            }
+            else
+            {
+                try
+                {
+                    var w = u.Multiply(G);
+                    return w;
+                }catch(Exception e)
+                {
+                    throw e;
+                }
+            }
         }
 
         /// <summary>
@@ -54,7 +68,6 @@ namespace TruyenTin.src
         /// </summary>
         public void Handler()
         {
-            //encrypt u => w
 #if TEST_DUONG_DI
             //send to server by duong_truyen
             var matrix = new Matrix_Binary(1, 3);
@@ -72,11 +85,18 @@ namespace TruyenTin.src
 
             SendAsync(package, new Duong_Truyen(), new Server());
 #else
+            //encrypt u => w
+            var w = Encrypt();
+
             //send data to duong_truyen
             var package = new Package()
             {
                 Code = CodeType.DATA,
-                Data = null
+                Data = new Data()
+                {
+                    G = G,
+                    W = w
+                }
             };
 
             SendAsync(package, new Duong_Truyen(), new Server());

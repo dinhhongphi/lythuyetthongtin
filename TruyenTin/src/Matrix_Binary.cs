@@ -110,5 +110,36 @@ namespace TruyenTin.src
         {
             return n;
         }
+
+        public Matrix_Binary ConvertTo_Standard_Form()
+        {
+            if(m > n)
+            {
+                throw new Exception("row number less than column number");
+            }
+            Matrix_Binary temp = new Matrix_Binary(m, n);
+            for(int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    temp.SetValue(i, j, matrix[i, j]);
+                }
+            }
+            for(int k = 0; k < m; k++)
+            {
+               for(int i = 0; i < m; i++)
+                {
+                    if(temp.GetValue(i,k) == 1 && i != k)
+                    {
+                        // row i - row k
+                        for(int j = k; j < n; j++)
+                        {
+                            temp.SetValue(i, j, temp.GetValue(i, j) ^ temp.GetValue(k, j));
+                        }
+                    }
+                }
+            }
+            return temp;
+        }
     }
 }

@@ -71,5 +71,30 @@ namespace Truyen_Tin_Test
             var result = matrix.Multiply(matrix2);
             Assert.AreEqual(null, result);
         }
+
+        [TestMethod]
+        public void ConvertTo_Standard_Form_Test_valid()
+        {
+            Matrix_Binary matrix2 = new Matrix_Binary(4, 7)
+            {
+                matrix = new int[4, 7]
+                {
+                    {1,1,0,1,0,0,0 },
+                    {1,0,1,1,1,0,0},
+                    {0,1,0,0,0,1,1 },
+                    {1,0,1,0,0,0,1 }
+                }
+            };
+
+            var a = matrix2.ConvertTo_Standard_Form();
+            int[,] expected = new int[4, 7]
+            {
+                {1,0,0,0,1,1,0 },
+                {0,1,0,0,0,1,1 },
+                {0,0,1,0,1,1,1 },
+                {0,0,0,1,1,0,1 }
+            };
+            CollectionAssert.AreEqual(expected, a.matrix);
+        }
     }
 }

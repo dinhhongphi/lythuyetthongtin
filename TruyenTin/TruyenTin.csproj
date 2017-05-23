@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;TEST_DUONG_DI</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -58,9 +58,13 @@
     <Compile Include="src\Data.cs" />
     <Compile Include="src\Duong_Truyen.cs" />
     <Compile Include="src\ISomeWhere.cs" />
+    <Compile Include="src\Log.cs" />
     <Compile Include="src\Matrix_Binary.cs" />
     <Compile Include="src\Package.cs" />
     <Compile Include="src\Server.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

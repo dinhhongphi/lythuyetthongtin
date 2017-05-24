@@ -96,5 +96,21 @@ namespace Truyen_Tin_Test
             };
             CollectionAssert.AreEqual(expected, a.matrix);
         }
+        [TestMethod]
+        public void GetHammingDistance_Test_valid()
+        {
+            Matrix_Binary h = new Matrix_Binary(3, 7)
+            {
+                matrix = new int[3, 7]
+                {
+                    {1,0,0,1,0,1,1 },
+                    {0,1,0,1,1,1,0 },
+                    {0,0,1,0,1,1,1 }
+                }
+            };
+
+            var result = h.GetHammingDistance();
+            Assert.AreEqual(3, result);
+        }
     }
 }

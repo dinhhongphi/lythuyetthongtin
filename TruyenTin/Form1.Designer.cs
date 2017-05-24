@@ -29,24 +29,168 @@
         private void InitializeComponent()
         {
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtM = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtN = new System.Windows.Forms.TextBox();
+            this.grbMatrix = new System.Windows.Forms.GroupBox();
+            this.btnInitMatrix = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mophongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtResult
             // 
-            this.txtResult.Location = new System.Drawing.Point(234, 24);
+            this.txtResult.Location = new System.Drawing.Point(416, 62);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(335, 288);
+            this.txtResult.ReadOnly = true;
+            this.txtResult.Size = new System.Drawing.Size(371, 371);
             this.txtResult.TabIndex = 0;
+            this.txtResult.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Data";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(77, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(313, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnInitMatrix);
+            this.groupBox1.Controls.Add(this.txtM);
+            this.groupBox1.Controls.Add(this.txtN);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(12, 88);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(378, 77);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Matrix Size";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(16, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "M";
+            // 
+            // txtM
+            // 
+            this.txtM.Location = new System.Drawing.Point(55, 31);
+            this.txtM.Name = "txtM";
+            this.txtM.Size = new System.Drawing.Size(48, 20);
+            this.txtM.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(119, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "N";
+            // 
+            // txtN
+            // 
+            this.txtN.Location = new System.Drawing.Point(140, 31);
+            this.txtN.Name = "txtN";
+            this.txtN.Size = new System.Drawing.Size(48, 20);
+            this.txtN.TabIndex = 2;
+            // 
+            // grbMatrix
+            // 
+            this.grbMatrix.Location = new System.Drawing.Point(12, 171);
+            this.grbMatrix.Name = "grbMatrix";
+            this.grbMatrix.Size = new System.Drawing.Size(378, 262);
+            this.grbMatrix.TabIndex = 3;
+            this.grbMatrix.TabStop = false;
+            this.grbMatrix.Text = "Matrix";
+            // 
+            // btnInitMatrix
+            // 
+            this.btnInitMatrix.Location = new System.Drawing.Point(245, 19);
+            this.btnInitMatrix.Name = "btnInitMatrix";
+            this.btnInitMatrix.Size = new System.Drawing.Size(107, 43);
+            this.btnInitMatrix.TabIndex = 3;
+            this.btnInitMatrix.Text = "Khởi tạo ma trận";
+            this.btnInitMatrix.UseVisualStyleBackColor = true;
+            this.btnInitMatrix.Click += new System.EventHandler(this.btnInitMatrix_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mophongToolStripMenuItem,
+            this.clearLogToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(795, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mophongToolStripMenuItem
+            // 
+            this.mophongToolStripMenuItem.Name = "mophongToolStripMenuItem";
+            this.mophongToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.mophongToolStripMenuItem.Text = "Mô Phỏng";
+            this.mophongToolStripMenuItem.Click += new System.EventHandler(this.mophongToolStripMenuItem_Click);
+            // 
+            // clearLogToolStripMenuItem
+            // 
+            this.clearLogToolStripMenuItem.Name = "clearLogToolStripMenuItem";
+            this.clearLogToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.clearLogToolStripMenuItem.Text = "Clear Log";
+            this.clearLogToolStripMenuItem.Click += new System.EventHandler(this.clearLogToolStripMenuItem_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label4.Location = new System.Drawing.Point(411, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Quá trình xử lí";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 324);
+            this.ClientSize = new System.Drawing.Size(795, 438);
+            this.Controls.Add(this.grbMatrix);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtResult);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -55,6 +199,19 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnInitMatrix;
+        private System.Windows.Forms.TextBox txtM;
+        private System.Windows.Forms.TextBox txtN;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox grbMatrix;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mophongToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearLogToolStripMenuItem;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -32,7 +32,7 @@ namespace TruyenTin.src
         /// <param name="value"></param>
         public void SetValue(int i, int j, int value)
         {
-            if(value == 0 || value == 1)
+            if (value == 0 || value == 1)
             {
                 matrix[i, j] = value;
             }
@@ -60,24 +60,25 @@ namespace TruyenTin.src
         /// <returns></returns>
         public Matrix_Binary Multiply(Matrix_Binary second)
         {
-            if(this.n == second.GetM()) //thỏa điều kiện nhân hai ma trận
+            if (this.n == second.GetM()) //thỏa điều kiện nhân hai ma trận
             {
                 Matrix_Binary c = new Matrix_Binary(this.m, second.GetN());
 
-                for(int i = 0; i < c.GetM(); i++)
+                for (int i = 0; i < c.GetM(); i++)
                 {
-                    for(int j = 0; j < c.GetN(); j++)
+                    for (int j = 0; j < c.GetN(); j++)
                     {
                         int result = 0;
-                        for(int k = 0; k < this.n; k++)
+                        for (int k = 0; k < this.n; k++)
                         {
                             result ^= this.matrix[i, k] * second.GetValue(k, j);
                         }
-                        c.SetValue(i,j,result);
+                        c.SetValue(i, j, result);
                     }
                 }
                 return c;
-            }else
+            }
+            else
             {
                 return null;
             }
@@ -117,7 +118,63 @@ namespace TruyenTin.src
         /// <returns></returns>
         public int GetHammingDistance()
         {
-            return 1;
+            int d = 1;
+            while (d < this.n)
+            {
+                Matrix_Binary column = new Matrix_Binary(this.m, 1);
+                for (int j = 0; j < this.m; j++)
+                {
+                    column.SetValue(j, 0, matrix[j, 0]);//copy column j
+                }
+                var result = Sum_next(column, d - 1,1);
+                if(result == d - 1)
+                {
+                    return d;
+                }
+                ++d;
+            }
+            return -1;
+        }
+
+        public int Sum_next(Matrix_Binary sum_before, int d_temp, int column_current)
+        {
+            if (column_current > d_temp)
+            {
+                int flag = 1; //giả sử tổng bằng 0
+                for (int i = 0; i < sum_before.GetM(); i++)
+                {
+                    if (sum_before.GetValue(i, 0) != 0)
+                    {
+                        flag = 0;
+                        break;
+                    }
+                }
+                if (flag == 0)
+                {
+                    return -1; //chưa chứng minh được d_temp là khoảng cách hamming
+                }
+                else
+                {//all row equal 0
+                    return d_temp; //đây chính là khoảng cách hamming cần tìm
+                }
+            }
+            else
+            {
+                for (int i = column_current; i < n; i++)
+                {
+                    var temp = new Matrix_Binary(sum_before.GetM(), 1);
+                    for (int j = 0; j < sum_before.GetM(); j++)
+                    {
+                        temp.SetValue(j, 0, sum_before.GetValue(j, 0) ^ matrix[j, i]);
+                    }
+                    var result = Sum_next(temp, d_temp, column_current + 1);
+                    if (result == d_temp)
+                    {
+                        return d_temp;
+                    }
+                }
+                return -1;
+            }
         }
 
         public int GetM()
@@ -132,26 +189,26 @@ namespace TruyenTin.src
 
         public Matrix_Binary ConvertTo_Standard_Form()
         {
-            if(m > n)
+            if (m > n)
             {
                 throw new Exception("row number less than column number");
             }
             Matrix_Binary temp = new Matrix_Binary(m, n);
-            for(int i = 0; i < m; i++)
+            for (int i = 0; i < m; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
                     temp.SetValue(i, j, matrix[i, j]);
                 }
             }
-            for(int k = 0; k < m; k++)
+            for (int k = 0; k < m; k++)
             {
-               for(int i = 0; i < m; i++)
+                for (int i = 0; i < m; i++)
                 {
-                    if(temp.GetValue(i,k) == 1 && i != k)
+                    if (temp.GetValue(i, k) == 1 && i != k)
                     {
                         // row i - row k
-                        for(int j = k; j < n; j++)
+                        for (int j = k; j < n; j++)
                         {
                             temp.SetValue(i, j, temp.GetValue(i, j) ^ temp.GetValue(k, j));
                         }

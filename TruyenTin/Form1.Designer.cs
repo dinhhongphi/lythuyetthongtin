@@ -30,14 +30,14 @@
         {
             this.txtResult = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtU = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtM = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtN = new System.Windows.Forms.TextBox();
-            this.grbMatrix = new System.Windows.Forms.GroupBox();
             this.btnInitMatrix = new System.Windows.Forms.Button();
+            this.txtM = new System.Windows.Forms.TextBox();
+            this.txtN = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.grbMatrix = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mophongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +52,7 @@
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
+            this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtResult.Size = new System.Drawing.Size(371, 371);
             this.txtResult.TabIndex = 0;
             this.txtResult.TabStop = false;
@@ -65,12 +66,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Data";
             // 
-            // textBox1
+            // txtU
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(313, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtU.Location = new System.Drawing.Point(77, 46);
+            this.txtU.Name = "txtU";
+            this.txtU.Size = new System.Drawing.Size(313, 20);
+            this.txtU.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -86,6 +87,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Matrix Size";
             // 
+            // btnInitMatrix
+            // 
+            this.btnInitMatrix.Location = new System.Drawing.Point(245, 19);
+            this.btnInitMatrix.Name = "btnInitMatrix";
+            this.btnInitMatrix.Size = new System.Drawing.Size(107, 43);
+            this.btnInitMatrix.TabIndex = 3;
+            this.btnInitMatrix.Text = "Khởi tạo ma trận";
+            this.btnInitMatrix.UseVisualStyleBackColor = true;
+            this.btnInitMatrix.Click += new System.EventHandler(this.btnInitMatrix_Click);
+            // 
+            // txtM
+            // 
+            this.txtM.Location = new System.Drawing.Point(55, 31);
+            this.txtM.Name = "txtM";
+            this.txtM.Size = new System.Drawing.Size(48, 20);
+            this.txtM.TabIndex = 2;
+            // 
+            // txtN
+            // 
+            this.txtN.Location = new System.Drawing.Point(140, 31);
+            this.txtN.Name = "txtN";
+            this.txtN.Size = new System.Drawing.Size(48, 20);
+            this.txtN.TabIndex = 2;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -94,13 +119,6 @@
             this.label2.Size = new System.Drawing.Size(16, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "M";
-            // 
-            // txtM
-            // 
-            this.txtM.Location = new System.Drawing.Point(55, 31);
-            this.txtM.Name = "txtM";
-            this.txtM.Size = new System.Drawing.Size(48, 20);
-            this.txtM.TabIndex = 2;
             // 
             // label3
             // 
@@ -111,13 +129,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "N";
             // 
-            // txtN
-            // 
-            this.txtN.Location = new System.Drawing.Point(140, 31);
-            this.txtN.Name = "txtN";
-            this.txtN.Size = new System.Drawing.Size(48, 20);
-            this.txtN.TabIndex = 2;
-            // 
             // grbMatrix
             // 
             this.grbMatrix.Location = new System.Drawing.Point(12, 171);
@@ -126,16 +137,6 @@
             this.grbMatrix.TabIndex = 3;
             this.grbMatrix.TabStop = false;
             this.grbMatrix.Text = "Matrix";
-            // 
-            // btnInitMatrix
-            // 
-            this.btnInitMatrix.Location = new System.Drawing.Point(245, 19);
-            this.btnInitMatrix.Name = "btnInitMatrix";
-            this.btnInitMatrix.Size = new System.Drawing.Size(107, 43);
-            this.btnInitMatrix.TabIndex = 3;
-            this.btnInitMatrix.Text = "Khởi tạo ma trận";
-            this.btnInitMatrix.UseVisualStyleBackColor = true;
-            this.btnInitMatrix.Click += new System.EventHandler(this.btnInitMatrix_Click);
             // 
             // menuStrip1
             // 
@@ -179,7 +180,7 @@
             this.ClientSize = new System.Drawing.Size(795, 438);
             this.Controls.Add(this.grbMatrix);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtU);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtResult);
@@ -200,7 +201,7 @@
 
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtU;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnInitMatrix;
         private System.Windows.Forms.TextBox txtM;

@@ -18,6 +18,7 @@ namespace TruyenTin.src
         {
            if(package.Code == CodeType.GUI_LAI)
             {
+                Log.Write("\r\n-------------TRUYỀN LẠI------------\r\n\r\n");
 #if TEST_DUONG_DI
                 x++;
                 if (x == 1000)
@@ -37,7 +38,7 @@ namespace TruyenTin.src
 #if TEST_DUONG_DI
             Debug.WriteLine("Client start send to duong truyen");
 #endif
-            Log.Write("Client gửi gói tin tới đường truyền");
+            Log.Write("Client : gửi gói tin tới đường truyền");
             await path.ReceiveAsync(package, this, receiver);
         }
 
@@ -102,7 +103,7 @@ namespace TruyenTin.src
                     W = w
                 }
             };
-            Log.Write_w(w);
+            Log.Write_vector("Client : mã hóa u => w = ",w);
             SendAsync(package, new Duong_Truyen(), new Server());
 #endif
         }

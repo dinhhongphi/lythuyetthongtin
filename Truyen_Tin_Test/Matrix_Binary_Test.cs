@@ -112,5 +112,50 @@ namespace Truyen_Tin_Test
             var result = h.GetHammingDistance();
             Assert.AreEqual(3, result);
         }
+
+        [TestMethod]
+        public void Get_Matrix_Chuyen_vi_Test_valid()
+        {
+            Matrix_Binary a = new Matrix_Binary(2, 3)
+            {
+                matrix = new int[2, 3]
+                {
+                    {1,0,0 },
+                    {0,1,1 }
+                }
+            };
+            var result = a.Get_Matrix_Chuyen_vi();
+            int[,] expect = new int[3, 2]
+            {
+                {1,0 },
+                {0,1 },
+                {0,1 }
+            };
+            CollectionAssert.AreEqual(expect, result.matrix);
+        }
+
+        [TestMethod]
+        public void GetMatrix_Check_Test()
+        {
+            Matrix_Binary x = new Matrix_Binary(4, 7)
+            {
+                matrix = new int[4, 7]
+                {
+                    {1,0,0,0,1,1,0 },
+                    {0,1,0,0,0,1,1 },
+                    {0,0,1,0,1,1,1 },
+                    {0,0,0,1,1,0,1 }
+                }
+            };
+            var result = x.GetMatrix_Check();
+            int[,] expect = new int[3, 7]
+            {
+                {1,0,1,1,1,0,0 },
+                {1,1,0,1,0,1,0 },
+                {0,1,1,1,0,0,1 }
+            };
+
+            CollectionAssert.AreEqual(expect, result.matrix);
+        }
     }
 }

@@ -19,6 +19,35 @@ namespace TruyenTin
         {
             InitializeComponent();
             Log.control = this.txtResult;
+            //matrix = new Matrix_Binary(4, 7);
+            //matrix.SetValue(0, 0, 1);
+            //matrix.SetValue(0, 1, 1);
+            //matrix.SetValue(0, 2, 0);
+            //matrix.SetValue(0, 3, 1);
+            //matrix.SetValue(0, 4, 0);
+            //matrix.SetValue(0, 5, 0);
+            //matrix.SetValue(0, 6, 0);
+            //matrix.SetValue(1, 0, 1);
+            //matrix.SetValue(1, 1, 0);
+            //matrix.SetValue(1, 2, 1);
+            //matrix.SetValue(1, 3, 1);
+            //matrix.SetValue(1, 4, 1);
+            //matrix.SetValue(1, 5, 0);
+            //matrix.SetValue(1, 6, 0);
+            //matrix.SetValue(2, 0, 0);
+            //matrix.SetValue(2, 1, 1);
+            //matrix.SetValue(2, 2, 0);
+            //matrix.SetValue(2, 3, 0);
+            //matrix.SetValue(2, 4, 0);
+            //matrix.SetValue(2, 5, 1);
+            //matrix.SetValue(2, 6, 1);
+            //matrix.SetValue(3, 0, 1);
+            //matrix.SetValue(3, 1, 0);
+            //matrix.SetValue(3, 2, 1);
+            //matrix.SetValue(3, 3, 0);
+            //matrix.SetValue(3, 4, 0);
+            //matrix.SetValue(3, 5, 0);
+            //matrix.SetValue(3, 6, 1);
         }
 
         private void DrawMatrix(bool allowModifier)
@@ -70,7 +99,7 @@ namespace TruyenTin
         private void btnInitMatrix_Click(object sender, EventArgs e)
         {
             int m, n;
-            if(!Int32.TryParse(txtM.Text,out m))
+            if (!Int32.TryParse(txtM.Text, out m))
             {
                 MessageBox.Show("Nhập lại M", "Error", MessageBoxButtons.OK);
                 return;
@@ -91,7 +120,25 @@ namespace TruyenTin
 
         private void mophongToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Log.Write_w(matrix);
+            Client c = new Client();
+            if(matrix != null && txtU.Text.Trim() != "")
+            {
+                try
+                {
+                    string u = txtU.Text;
+                    c.u = new Matrix_Binary(1, u.Length);
+                    for(int i = 0; i < u.Length; i++)
+                    {
+                        c.u.SetValue(0, i, int.Parse(u[i].ToString()));
+                    }
+                    c.G = matrix;
+                    c.Handler();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
         }
     }
 }

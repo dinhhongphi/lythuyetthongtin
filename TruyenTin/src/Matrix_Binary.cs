@@ -90,19 +90,19 @@ namespace TruyenTin.src
         /// <returns></returns>
         public Matrix_Binary GetMatrix_Check()
         {
-            int i, j, temp = m + 1;
-            Matrix_Binary Ma_tran_H = new Matrix_Binary((this.n - this.m), this.n);
+            int i, j, temp = m;
+            Matrix_Binary Ma_tran_H = new Matrix_Binary((n - m),n);
             for (i = 0; i < m; i++)
             {
-                for (j = m + 1; j < n; j++)
+                for (j = m; j < n; j++)
                 {
 
-                    Ma_tran_H.SetValue(j - (m + 1), i, ConvertTo_Standard_Form().GetValue(i, j));
+                    Ma_tran_H.SetValue(j - m, i, matrix[i, j]);
                 }
             }
             for (i = 0; i < n - m; i++)
             {
-                for (j = m + 1; j < n; j++)
+                for (j = m; j < n; j++)
                 {
                     if (j == temp) Ma_tran_H.SetValue(i, j, 1);
                     else Ma_tran_H.SetValue(i, j, 0);
@@ -110,6 +110,20 @@ namespace TruyenTin.src
                 temp++;
             }
             return Ma_tran_H;
+        }
+
+        public Matrix_Binary Get_Matrix_Chuyen_vi()
+        {
+            Matrix_Binary result = new Matrix_Binary(this.n, this.m);
+            for (int i = 0; i < result.GetM(); i++)
+            {
+                for (int j = 0; j < result.GetN(); j++)
+                {
+
+                    result.SetValue(i,j,matrix[j,i]);
+                }
+            }
+            return result;
         }
 
         /// <summary>

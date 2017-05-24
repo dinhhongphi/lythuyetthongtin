@@ -16,13 +16,15 @@ namespace TruyenTin.src
             await ForwardAsync(package, receiver, sender);
 #else
             //caculator hamming distance
-            var h = package.Data.G.GetMatrix_Check();
+            var standar_matrix = package.Data.G.ConvertTo_Standard_Form();
+            Log.Write_Matrix("Đường truyền :  tính được ma trận hệ thống của G là :", standar_matrix);
+            var h = standar_matrix.GetMatrix_Check();
             Log.Write_Matrix("Đường truyền tính được ma trận kiểm tra H", h);
             int d = h.GetHammingDistance();
-            Log.Write("Đường truyền tính d = " + d.ToString());
+            Log.Write("Đường truyền : tính d = " + d.ToString());
             //sinh loi
             var a = SinhLoi(package.Data.W, d);
-            Log.Write_vector("Sau khi random nhiễu w có giá trị: ", a);
+            Log.Write_vector("Đường truyền : Sau khi random nhiễu w có giá trị: ", a);
             var new_package = new Package()
             {
                 Code = package.Code,
@@ -43,7 +45,7 @@ namespace TruyenTin.src
             Debug.WriteLine("duong_truyen send package to server");
             await ((Server)receiver).ReceiveAsync(package, this, sender);
 #else
-            Log.Write("Đường truyền gửi gói tin tới server");
+            Log.Write("Đường truyền : gửi gói tin tới server");
             await ((Server)receiver).ReceiveAsync(package, this, sender);
 #endif
         }
@@ -57,6 +59,7 @@ namespace TruyenTin.src
         private Matrix_Binary SinhLoi(Matrix_Binary w, int d)
         {
             int t = Random_t(d);
+            Log.Write("Đường truyền : khởi tạo số bit lỗi là " + t.ToString());
             bool[] flag = new bool[w.GetN()];
             for(int i = 0; i < w.GetN(); i++)
             {
@@ -69,7 +72,8 @@ namespace TruyenTin.src
                 do
                 {
                     bit = r.Next(w.GetN());
-                } while (!flag[bit]);
+                } while (flag[bit]);
+                flag[bit] = true;
                 w.SetValue(0, bit, w.GetValue(0, bit) ^ 1); //đảo bit
             }
             return w;

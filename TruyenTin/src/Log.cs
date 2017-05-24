@@ -45,7 +45,7 @@ namespace TruyenTin.src
                 for (int i = 0; i < h.GetM(); i++)
                 {
                     result += "     ";
-                    for (int j = 0; j < h.GetM(); j++)
+                    for (int j = 0; j < h.GetN(); j++)
                     {
                         result += h.GetValue(i, j).ToString() + "  ";
                     }

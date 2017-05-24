@@ -90,7 +90,26 @@ namespace TruyenTin.src
         /// <returns></returns>
         public Matrix_Binary GetMatrix_Check()
         {
-            return null;
+            int i, j, temp = m + 1;
+            Matrix_Binary Ma_tran_H = new Matrix_Binary((this.n - this.m), this.n);
+            for (i = 0; i < m; i++)
+            {
+                for (j = m + 1; j < n; j++)
+                {
+
+                    Ma_tran_H.SetValue(j - (m + 1), i, ConvertTo_Standard_Form().GetValue(i, j));
+                }
+            }
+            for (i = 0; i < n - m; i++)
+            {
+                for (j = m + 1; j < n; j++)
+                {
+                    if (j == temp) Ma_tran_H.SetValue(i, j, 1);
+                    else Ma_tran_H.SetValue(i, j, 0);
+                }
+                temp++;
+            }
+            return Ma_tran_H;
         }
 
         /// <summary>

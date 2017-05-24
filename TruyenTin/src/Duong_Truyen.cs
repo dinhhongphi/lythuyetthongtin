@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TruyenTin.src
 {
-    public class Duong_Truyen 
+    public class Duong_Truyen
     {
         public async Task ReceiveAsync(Package package, ISomeWhere sender, ISomeWhere receiver)
         {
@@ -16,9 +16,13 @@ namespace TruyenTin.src
             await ForwardAsync(package, receiver, sender);
 #else
             //caculator hamming distance
-            int d = package.Data.G.GetMatrix_Check().GetHammingDistance();
+            var h = package.Data.G.GetMatrix_Check();
+            Log.Write_Matrix("Đường truyền tính được ma trận kiểm tra H", h);
+            int d = h.GetHammingDistance();
+            Log.Write("Đường truyền tính d = " + d.ToString());
             //sinh loi
             var a = SinhLoi(package.Data.W, d);
+            Log.Write_vector("Sau khi random nhiễu w có giá trị: ", a);
             var new_package = new Package()
             {
                 Code = package.Code,
@@ -39,6 +43,7 @@ namespace TruyenTin.src
             Debug.WriteLine("duong_truyen send package to server");
             await ((Server)receiver).ReceiveAsync(package, this, sender);
 #else
+            Log.Write("Đường truyền gửi gói tin tới server");
             await ((Server)receiver).ReceiveAsync(package, this, sender);
 #endif
         }
@@ -51,7 +56,23 @@ namespace TruyenTin.src
         /// <returns></returns>
         private Matrix_Binary SinhLoi(Matrix_Binary w, int d)
         {
-            return null;
+            int t = Random_t(d);
+            bool[] flag = new bool[w.GetN()];
+            for(int i = 0; i < w.GetN(); i++)
+            {
+                flag[i] = false;
+            }
+            Random r = new Random();
+            for(int i = 0; i < t; i++)
+            {
+                int bit;
+                do
+                {
+                    bit = r.Next(w.GetN());
+                } while (!flag[bit]);
+                w.SetValue(0, bit, w.GetValue(0, bit) ^ 1); //đảo bit
+            }
+            return w;
         }
 
         /// <summary>
@@ -61,7 +82,9 @@ namespace TruyenTin.src
         /// <returns></returns>
         private int Random_t(int d)
         {
-            return 1;
+            Random r = new Random();
+            int t = r.Next(d);
+            return t;
         }
 
 

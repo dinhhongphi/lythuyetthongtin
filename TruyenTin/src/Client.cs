@@ -37,6 +37,7 @@ namespace TruyenTin.src
 #if TEST_DUONG_DI
             Debug.WriteLine("Client start send to duong truyen");
 #endif
+            Log.Write("Client gửi gói tin tới đường truyền");
             await path.ReceiveAsync(package, this, receiver);
         }
 
@@ -101,6 +102,7 @@ namespace TruyenTin.src
                     W = w
                 }
             };
+            Log.Write_w(w);
             SendAsync(package, new Duong_Truyen(), new Server());
 #endif
         }

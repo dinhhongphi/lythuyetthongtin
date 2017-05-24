@@ -22,7 +22,16 @@ namespace TruyenTin.src
             };
             await client.ReceiveAsync(p, null, this);
 #else
-            if(true) //detect error can fix
+            var G = package.Data.G;
+            var v = package.Data.W;
+            Log.Write_vector("Server nhận được từ mã có giá trị ", v);
+
+            var h = G.GetMatrix_Check();
+            Log.Write_Matrix("Server tính được ma trận kiểm tra H", h);
+            int d = h.GetHammingDistance();
+            Log.Write("Server tính d = " + d.ToString());
+
+            if (true) //detect error can fix
             {
 
             }else //error can't fix

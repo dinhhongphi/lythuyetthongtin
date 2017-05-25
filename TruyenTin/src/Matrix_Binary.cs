@@ -231,5 +231,42 @@ namespace TruyenTin.src
             }
             return temp;
         }
+
+        public bool IsVector_Zero()
+        {
+            for(int i = 0; i < m; i++)
+            {
+                for(int j = 0; j < n; j++)
+                {
+                    if(matrix[i,j] != 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool Equal(Matrix_Binary second)
+        {
+            if((this.m == second.GetM()) && (this.n == second.GetN()))
+            {
+                for (int i = 0; i < m; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        if (matrix[i, j] != second.GetValue(i,j))
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

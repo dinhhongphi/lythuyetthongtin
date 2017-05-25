@@ -19,35 +19,35 @@ namespace TruyenTin
         {
             InitializeComponent();
             Log.control = this.txtResult;
-            //matrix = new Matrix_Binary(4, 7);
-            //matrix.SetValue(0, 0, 1);
-            //matrix.SetValue(0, 1, 1);
-            //matrix.SetValue(0, 2, 0);
-            //matrix.SetValue(0, 3, 1);
-            //matrix.SetValue(0, 4, 0);
-            //matrix.SetValue(0, 5, 0);
-            //matrix.SetValue(0, 6, 0);
-            //matrix.SetValue(1, 0, 1);
-            //matrix.SetValue(1, 1, 0);
-            //matrix.SetValue(1, 2, 1);
-            //matrix.SetValue(1, 3, 1);
-            //matrix.SetValue(1, 4, 1);
-            //matrix.SetValue(1, 5, 0);
-            //matrix.SetValue(1, 6, 0);
-            //matrix.SetValue(2, 0, 0);
-            //matrix.SetValue(2, 1, 1);
-            //matrix.SetValue(2, 2, 0);
-            //matrix.SetValue(2, 3, 0);
-            //matrix.SetValue(2, 4, 0);
-            //matrix.SetValue(2, 5, 1);
-            //matrix.SetValue(2, 6, 1);
-            //matrix.SetValue(3, 0, 1);
-            //matrix.SetValue(3, 1, 0);
-            //matrix.SetValue(3, 2, 1);
-            //matrix.SetValue(3, 3, 0);
-            //matrix.SetValue(3, 4, 0);
-            //matrix.SetValue(3, 5, 0);
-            //matrix.SetValue(3, 6, 1);
+            matrix = new Matrix_Binary(4, 7);
+            matrix.SetValue(0, 0, 1);
+            matrix.SetValue(0, 1, 1);
+            matrix.SetValue(0, 2, 0);
+            matrix.SetValue(0, 3, 1);
+            matrix.SetValue(0, 4, 0);
+            matrix.SetValue(0, 5, 0);
+            matrix.SetValue(0, 6, 0);
+            matrix.SetValue(1, 0, 1);
+            matrix.SetValue(1, 1, 0);
+            matrix.SetValue(1, 2, 1);
+            matrix.SetValue(1, 3, 1);
+            matrix.SetValue(1, 4, 1);
+            matrix.SetValue(1, 5, 0);
+            matrix.SetValue(1, 6, 0);
+            matrix.SetValue(2, 0, 0);
+            matrix.SetValue(2, 1, 1);
+            matrix.SetValue(2, 2, 0);
+            matrix.SetValue(2, 3, 0);
+            matrix.SetValue(2, 4, 0);
+            matrix.SetValue(2, 5, 1);
+            matrix.SetValue(2, 6, 1);
+            matrix.SetValue(3, 0, 1);
+            matrix.SetValue(3, 1, 0);
+            matrix.SetValue(3, 2, 1);
+            matrix.SetValue(3, 3, 0);
+            matrix.SetValue(3, 4, 0);
+            matrix.SetValue(3, 5, 0);
+            matrix.SetValue(3, 6, 1);
         }
 
         private void DrawMatrix(bool allowModifier)
@@ -55,7 +55,7 @@ namespace TruyenTin
             if (matrix != null)
             {
                 //remove old item in matrix
-                this.grbMatrix.Controls.Clear();
+                this.panMatrix.Controls.Clear();
                 //show matrix
                 var X_begin = 7;
                 var Y_begin = 19;
@@ -69,7 +69,7 @@ namespace TruyenTin
                         txt.Size = new System.Drawing.Size(44, 20);
                         txt.Enabled = allowModifier;
                         txt.TextChanged += Txt_TextChanged; ;
-                        this.grbMatrix.Controls.Add(txt);
+                        this.panMatrix.Controls.Add(txt);
                         X_begin += 52;
                     }
                     X_begin = 7;

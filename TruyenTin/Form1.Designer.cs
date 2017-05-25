@@ -37,13 +37,15 @@
             this.txtN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.grbMatrix = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mophongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
+            this.panMatrix = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtResult
@@ -129,15 +131,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "N";
             // 
-            // grbMatrix
-            // 
-            this.grbMatrix.Location = new System.Drawing.Point(12, 171);
-            this.grbMatrix.Name = "grbMatrix";
-            this.grbMatrix.Size = new System.Drawing.Size(378, 262);
-            this.grbMatrix.TabIndex = 3;
-            this.grbMatrix.TabStop = false;
-            this.grbMatrix.Text = "Matrix";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -173,12 +166,30 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Quá trình xử lí";
             // 
+            // panMatrix
+            // 
+            this.panMatrix.AutoScroll = true;
+            this.panMatrix.Location = new System.Drawing.Point(6, 19);
+            this.panMatrix.Name = "panMatrix";
+            this.panMatrix.Size = new System.Drawing.Size(378, 233);
+            this.panMatrix.TabIndex = 5;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.panMatrix);
+            this.groupBox2.Location = new System.Drawing.Point(12, 175);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(390, 258);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Matrix";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 438);
-            this.Controls.Add(this.grbMatrix);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtU);
             this.Controls.Add(this.label4);
@@ -192,6 +203,7 @@
             this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,11 +220,12 @@
         private System.Windows.Forms.TextBox txtN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox grbMatrix;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mophongToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearLogToolStripMenuItem;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panMatrix;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
